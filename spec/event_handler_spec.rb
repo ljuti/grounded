@@ -2,6 +2,14 @@
 
 require "spec_helper"
 
+class DoThis < Grounded::EventHandler
+  def call(event)
+  end
+end
+
+class SomethingHappened < Grounded::Event
+end
+
 RSpec.describe "Event handler" do
   TestPlumbing.with(
     event_store: Grounded::EventStore.in_memory,
@@ -9,19 +17,11 @@ RSpec.describe "Event handler" do
   ) do |event_store|
     it "handles the event" do
       event_store.subscribe(DoThis, to: [SomethingHappened])
-      event = SomethingHappened.new(data: { what: "happened" })
+      event = SomethingHappened.new(data: {what: "happened"})
 
       event_store.publish(event)
 
       expect { DoThis.drain }.not_to raise_error
-    end
-
-    class DoThis < Grounded::EventHandler
-      def call(event)
-      end
-    end
-
-    class SomethingHappened < Grounded::Event
     end
   end
 end
