@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-require "sidekiq"
+require "active_job"
 
 module Grounded
-  class EventHandler
-    include Sidekiq::Job
-
+  class EventHandler < ActiveJob::Base
     def perform(payload)
       event = event_store.read.event(payload.symbolize_keys.fetch(:event_id))
       event_store.with_metadata(

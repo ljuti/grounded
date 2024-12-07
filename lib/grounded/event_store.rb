@@ -6,7 +6,7 @@ module Grounded
       new(RailsEventStore::JSONClient.new(
         dispatcher: RubyEventStore::ComposedDispatcher.new(
           RailsEventStore::AfterCommitAsyncDispatcher.new(
-            scheduler: RubyEventStore::SidekiqScheduler.new(serializer: RubyEventStore::Serializers::YAML)
+            scheduler: RailsEventStore::ActiveJobScheduler.new(serializer: RubyEventStore::Serializers::YAML)
           ),
           RubyEventStore::Dispatcher.new
         )

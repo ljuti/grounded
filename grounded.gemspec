@@ -30,10 +30,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "activesupport"
+  spec.add_dependency "activejob"
   spec.add_dependency "aggregate_root"
   spec.add_dependency "arkency-command_bus"
   spec.add_dependency "dry-struct"
   spec.add_dependency "dry-types"
   spec.add_dependency "ruby_event_store"
-  spec.add_dependency "sidekiq"
+  spec.add_dependency "ulid-ruby"
 end
