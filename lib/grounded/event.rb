@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "ulid"
 require "active_support/core_ext/hash"
 
 module Grounded

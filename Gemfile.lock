@@ -9,6 +9,7 @@ PATH
       dry-struct
       dry-types
       ruby_event_store
+      ulid-ruby
 
 GEM
   remote: https://rubygems.org/
@@ -126,6 +127,7 @@ GEM
       rubocop-performance (~> 1.22.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    ulid-ruby (1.0.2)
     unicode-display_width (2.6.0)
     uri (1.0.2)
     zeitwerk (2.7.1)
